@@ -29,7 +29,7 @@ open class AKConverter: NSObject {
     public typealias AKConverterCallback = (_ error: Error?) -> Void
 
     /** Formats that this class can write */
-    public static let outputFormats = ["wav", "aif", "caf", "m4a"]
+    public static let outputFormats = ["wav", "aif", "caf", "m4a", "mp3"]
 
     /** Formats that this class can read */
     public static let inputFormats = AKConverter.outputFormats + [
@@ -201,6 +201,9 @@ open class AKConverter: NSObject {
             formatKey = kAudioFormatLinearPCM
         case "wav":
             format = .wav
+            formatKey = kAudioFormatLinearPCM
+        case "mp3":
+            format = .mp3
             formatKey = kAudioFormatLinearPCM
         default:
             AKLog("Unsupported output format: \(outputFormat)")
